@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+<title>Megarobo coffee web</title>
+
+<style type="text/css">
+
+</style>
+<script src="js/jquery.js" ></script>
+<link rel="stylesheet" href="css/siyafont.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<style type="text/css">
+ 
+.div_allinline
+{
+    text-align:center;
+    margin:0 auto;
+    padding:0;
+    clear:both;
+}
+
+.subdiv_allinline
+{
+    margin:0;
+    padding:0;
+    display:inline-block;
+    _display:inline;
+    *display:inline;
+    zoom:1;
+}
+.container
+{
+	display:inline-flex;
+	width:200px;
+	height:auto;
+	margin-left:0;
+}
+.icon
+{
+	width:80px;
+	height:80px;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;	
+	
+	margin:auto auto;
+}
+p
+{
+	float:left; 
+	text-align:left;
+	font-size:36px;
+	font-weight:bold;
+	letter-spacing:12px;
+	margin:auto auto;
+	color:white;
+}
+</style>
+<style type="text/css">
+#affiche {
+    color: red;
+    display: block;
+    width: 96%;
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.affiche_text {
+    position: absolute;
+    top: 0;
+	font-size:32px;
+    left: 100%;
+    line-height: 30px;
+    display: block;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style>
+  </head>
+  <body style="background:#49382C;">
+
+	<div class="div_allinline">
+	</div>
+	<div id="root" style="display:;">
+		<button id="open_left">左弹窗</button>
+		<button id="open_right">右弹窗</button>
+		<button id="open_btn">弹窗</button>
+		<button id="video_show">显示视频</button>
+		<button id="hide_show">隐藏视频</button>
+		<button id="showtb">显示订单</button>
+		
+		<button id="hide_arrows">隐藏箭头</button>
+		<button id="show_arrows">显示箭头</button>
+		<button id="hide_wait_tb">隐藏待取订单</button>
+		<button id="delete_order">删除订单</button>
+		<button id="hidetb">隐藏订单</button>
+		<button id="add_order">添加订单</button>
+		<button id="add_fetch_order">添加待取订单</button>
+		<button id="add_startpaomadeng">开始跑马灯</button>
+		<button id="add_stoppaomadeng">停止跑马灯</button>
+		<input id="order_messege_input"></input>
+	</div>
+
+  <div style="display:block;">
+  </div>
+    <div id="background_left_fetch" class="back">
+		<div id="div_background_left_fetch" class="content">
+			<div id="div_logo">
+				<img src="pic/logo1.png" width="130px" height="120px"></img>
+				
+			</div>
+			<div id="div2">
+				<div id="div_tanchuang" style="text-align:center;margin:0 auto;" >
+					
+					<div id="div_lefty_fetch"  style="float:left;text-align:center;margin-left:20px; margin-top:60px;width:100%;">
+						<font style='opacity:0.5;font-size:26px;font-weight:400;color:#333333;letter-spacing:6px;' id='p3_content'>超时未取，咖啡可能会跑掉哦~</font>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="background_right_fetch" class="back">
+		<div id="div_background_right_fetch" class="content">
+			<div id="div_logo">
+				<img src="pic/logo1.png" width="130px" height="120px"></img>
+				
+			</div>
+			<div id="div2">
+				<div id="div_tanchuang" style="text-align:center;margin:0 auto;" >
+					
+					<div id="div_righty_fetch"  style="float:left;text-align:center;margin-top:60px;width:100%;margin-left:20px;">
+						<font style='opacity:0.5;font-size:26px;font-weight:400;color:#333333;letter-spacing:6px;' id='p3_content'>超时未取，咖啡可能会跑掉哦~</font>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="background" class="back">
+		<div id="div1" class="content">
+			<div id="div_logo">
+				<img src="pic/logo1.png" width="130px" height="120px"></img>
+				
+			</div>
+			<div id="div2">
+				<div id="div_tanchuang" style="text-align:center;float:left;" >
+					<div id="div_left_fetch" style="text-align:center;margin-left:0px; float:left;width:50%;">
+					
+					</div>
+					<div id="div_right_fetch"  style="text-align:center;margin-right:0px; float:right;width:50%;">
+					
+					</div>
+					<div style="float:left;text-align:center;margin-top:60px;width:100%;">
+						<font style='opacity:0.5;font-size:26px;font-weight:400;color:#333333;letter-spacing:6px;' id='p3_content'>超时未取，咖啡可能会跑掉哦~</font>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div id="background2" class="back">
+		<div id="div1background2" class="content">
+			<div id="div2background2_logo">
+				<img src="pic/logo1.png" width="130px" height="120px"></img>
+				
+			</div>
+			<div id="div2background2">
+				<div id="div_tanchuang" style="text-align:center;margin:0 auto;" >
+					<div id="div_left_fetch2" style="text-align:center;margin-left:0px; float:left;width:100%;">
+					
+					</div>
+					
+					<div style="float:left;text-align:center;margin-top:20px;width:100%;display:block;">
+						<font style='opacity:0.5;font-size:26px;font-weight:400;color:#333333;letter-spacing:6px;' id='p3_content'>   </font>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 弹窗内容结束 -->
+	
+	<div id="main0">
+	    <div id="affiche">
+			<div class="affiche_text" id="affiche_text">
+			 友情提示：我是镁伽自动咖啡机器人，请以官网价格为准!
+			</div>
+		</div>
+	<div id="div_video_show0">
+		<div class="container">
+			<div class="icon"><img src="pic/_logo1@3x.png" width="80px" height="80px"></img></div>
+			<p>镁咖</p>
+		</div>
+		<div style="float:right;font-size:30px;font-weight:500;letter-spacing:6px;margin-top:20px;display:inline">
+			<img src="pic/ico_laba@2x.png" width="25px" height="25px"></img>
+			
+			<span id="waitingfor_make">共计有<font id="cup_count" style="color:#F00;">5</font>个订单待制作</span>
+		</div>
+	</div>
+	<div id="div_fetch_show0">
+		<div id="" style="float:right;font-size:30px;font-weight:800;letter-spacing:8px;margin-top:20px;">
+			<span id="nowtime"></span>
+		</div>
+	</div>
+	</div>
+	<div id="main">
+	<div id="div_video_show">
+		<video id="video1" style="width:100%;height:100%;object-fit:inherit;" controls="controls" autoplay="autoplay" loop>
+		  <source src="pic/megarobo.mp4">
+		</video>
+	</div>
+	<div id="div_order_show">
+		<table id="tb_order_show" cellspacing=0 align=left>
+		 <tr style="background:#F4E9DB;color:#333333;font-size:28px;font-weight:200;letter-spacing:6px;">
+		  <th align="center" style="border:none">订单编号</th>
+		  <th align="center" style="border:none">杯数</th>
+		  <th align="center" style="border:none">状态</th>
+		  <th align="center" style="border:none">预计出品</th>
+		 </tr>
+		 <tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;border-right:none;">A1234</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">2/<font style="color:;">2</font></td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;"><div class="subdiv_allinline" style="margin-bottom:10px; width:9.2px;height:9.2px;border-radius:50%;background-color:#FE5858;"></div>
+	   <div class="subdiv_allinline" style="color:#FE5858;">制作中</div></nobr></td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">15:23</td>
+		 </tr>
+		 <tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">2/1</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;"><nobr><div class="subdiv_allinline" style="margin-bottom:10px; width:9.2px;height:9.2px;border-radius:50%;background-color:#FE5858;"></div>
+	   <div class="subdiv_allinline" style="color:#FE5858;">制作中</div></nobr></td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">15:23</td>
+		 </tr>
+		 <tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+		  <td align="center"  style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">2/1</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">制作中</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">15:23</td>
+		 </tr>
+		 <tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">2/1</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">待制作</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">15:23</td>
+		 </tr>
+		  <tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">2/1</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">待制作</td>
+		  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">15:23</td>
+		 </tr>
+		 <tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+		  <td align="center" ">A1234</td>
+		  <td align="center" ">2/1</td>
+		  <td align="center" ">制作中</td>
+		  <td align="center" >15:23</td>
+		 </tr>
+		</table>
+		<div id="inner_left_footer">
+			<font width="30px" height="30px">&nbsp;</font><img id="left_jiantou_pic" src="pic/ico_more@3x.png" width="30px" height="30px"></img>
+		</div>
+	</div>
+	<div id="div_fetch_show">
+		<table id="tb_fetch_show"  rules=cols cellspacing=0 align=left>
+			<tr style="background:#F4E9DB;color:#333333;font-size:28px;font-weight:200;letter-spacing:6px;">
+			<th align="center" style="border:none;">待取编号</th>
+			</tr>
+			<tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+			  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+			</tr>
+			<tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+			  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+			</tr>
+			<tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+			  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+			</tr>
+			<tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+			  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+			</tr>
+			<tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+			  <td align="center" style="border-bottom:#F4E9DB dotted 3px;">A1234</td>
+			</tr>
+			<tr style="color:#49382C;background:#FFFFFF;font-size:36px;font-weight:500 ;letter-spacing:6px;">
+			  <td align="center" >A1234</td>
+			</tr>
+		</table>
+		<div id="inner_right_footer">
+			<font width="30px" height="30px">&nbsp;</font><img id="right_jiantou_pic" src="pic/ico_more@3x.png" width="30px" height="30px"></img>
+		</div>
+	</div>
+	</div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+<script>
+
+</script>
+<script src="js/index.js"></script>
+  </body>
+</html>
